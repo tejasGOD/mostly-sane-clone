@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-body,
-html {
+
+/* General Reset */
+body, html {
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -8,24 +9,37 @@ html {
   overflow-x: hidden;
 }
 
-.box {
-  display: block;
-  background-color: blue;
-  height: 50vh;
+/* Light Theme */
+body.light {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --border-color: #000000;
 }
 
-.nav-big {
+/* Dark Theme */
+body.dark {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --border-color: #ffffff;
+}
+
+/* Apply theme colors */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.nav-big, .footer, .tit, .theme-toggle {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+.nav-big {
   font-weight: 300;
   text-transform: uppercase;
   font-size: 1.6rem;
   text-align: right;
-}
-.logo-img {
-  margin: auto;
-  margin-bottom: 1em;
 }
 
 .nav-big-ul > li {
@@ -39,18 +53,21 @@ html {
   background-position: 100% 100%;
   background-repeat: no-repeat;
   transition: background-size 0.3s ease-in-out;
-  background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+  background-image: linear-gradient(var(--text-color), var(--text-color));
 }
+
 .under-ani:hover {
   background-size: 100% 1px;
   background-position: 100% 100%;
 }
 
+.logo-img {
+  margin: auto;
+  margin-bottom: 1em;
+}
+
 .footer {
   height: 6rem;
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
   font-weight: 400;
   text-transform: uppercase;
   font-size: 1rem;
@@ -58,12 +75,46 @@ html {
   flex-direction: row;
   justify-content: flex-end;
 }
-.footer > a{
-    padding: 1rem;
+
+.footer > a {
+  padding: 1rem;
 }
-.post-img{
+
+/* Post Container */
+.post-cont {
+  height: auto;
+  padding: 10px;
+  margin: 5px;
+  border: solid var(--border-color);
+}
+
+.post-img {
   max-width: 400px;
 }
-.post-cont{
-  height: auto;
+
+/* Description box */
+.des {
+  display: none;
+  padding: 5px;
+  border: double var(--border-color) 2px;
 }
+
+/* Title style */
+.tit {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: solid var(--border-color) 2px;
+  padding: 10px;
+  margin: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+ 
